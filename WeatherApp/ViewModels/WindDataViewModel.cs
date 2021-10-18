@@ -10,12 +10,13 @@ namespace WeatherApp.ViewModels
         /// TODO : Ajoutez le code nécessaire pour réussir les tests et répondre aux requis du projet
         public double KPHtoMPS(double kph)
         {
-            return kph*(1000/3600);
+            Double x = (Double)Decimal.Divide(1000, 3600);
+            kph = kph * x;
+            return Math.Round(kph,2);
         }
 
         public double MPStoKPH(double mps)
         {
-            double x = 3600 / 1000;
             return mps * 3.6;
         }
     }
