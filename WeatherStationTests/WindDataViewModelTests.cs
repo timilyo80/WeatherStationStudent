@@ -28,10 +28,13 @@ namespace WeatherStationTests
         public void MPStoKPH_AlwaysReturnGoodValue(double mps, double expected)
         {
             // Arrange
+            WindDataViewModel WDVM = new WindDataViewModel();
 
-            // Act       
+            // Act
+            var actual = WDVM.MPStoKPH(mps);
 
             // Assert
+            Assert.Equal(expected, actual);
 
             /// TODO : git commit -a -m "T01 MPStoKPH_AlwaysReturnGoodValue : Done"
         }
