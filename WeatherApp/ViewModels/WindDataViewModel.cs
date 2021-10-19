@@ -23,5 +23,10 @@ namespace WeatherApp.ViewModels
         {
             return mps * 3.6;
         }
+
+        public bool CanGetData()
+        {
+            return GetDataCommand != null;
+        }
     }
 }

@@ -94,10 +94,12 @@ namespace WeatherStationTests
         public void CanGetData_WhenServiceIsNull_ReturnsFalse()
         {
             // Arrange
+            _sut = new WindDataViewModel();
 
             // Act       
 
             // Assert
+            Assert.False(_sut.CanGetData());
 
             /// TODO : git commit -a -m "T04 CanGetData_WhenServiceIsNull_ReturnsFalse : Done"
         }
