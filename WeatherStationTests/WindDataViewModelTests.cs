@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Moq;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using WeatherApp.Commands;
 using WeatherApp.ViewModels;
 using Xunit;
 
@@ -28,10 +30,10 @@ namespace WeatherStationTests
         public void MPStoKPH_AlwaysReturnGoodValue(double mps, double expected)
         {
             // Arrange
-            WindDataViewModel WDVM = new WindDataViewModel();
+            _sut = new WindDataViewModel();
 
             // Act
-            var actual = WDVM.MPStoKPH(mps);
+            var actual = _sut.MPStoKPH(mps);
 
             // Assert
             Assert.Equal(expected, actual);
@@ -55,10 +57,10 @@ namespace WeatherStationTests
         public void KPHtoMPS_AlwaysReturnGoodValue(double kph, double expected)
         {
             // Arrange
-            WindDataViewModel WDVM = new WindDataViewModel();
+            _sut = new WindDataViewModel();
 
             // Act
-            var actual = WDVM.KPHtoMPS(kph);
+            var actual = _sut.KPHtoMPS(kph);
 
             // Assert
             Assert.Equal(expected, actual);
@@ -74,10 +76,12 @@ namespace WeatherStationTests
         public void GetDataCommand_ExecuteIfNullService_ShouldThrowNullException()
         {
             // Arrange
+            _sut = new WindDataViewModel();
 
             // Act       
 
             // Assert
+            Assert.Null(_sut.GetDataCommand);
 
             /// TODO : git commit -a -m "T03 GetDataCommand_ExecuteIfNullService_ShouldThrowNullException : Done"
         }

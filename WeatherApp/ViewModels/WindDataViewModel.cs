@@ -8,6 +8,10 @@ namespace WeatherApp.ViewModels
     public class WindDataViewModel : BaseViewModel
     {
         /// TODO : Ajoutez le code nécessaire pour réussir les tests et répondre aux requis du projet
+
+        public DelegateCommand<string> GetDataCommand;
+        //WindDataModel CurrentData;
+
         public double KPHtoMPS(double kph)
         {
             Double x = (Double)Decimal.Divide(1000, 3600);
